@@ -16,8 +16,8 @@ Simple logging application
 * [How install?](#how-install) 
 * [How to work with it?](#how-to-work-with-it) 
 * [Set up a django app](#set-up-a-django-app) 
-* [How to use @report_bug?](#how-to-use-report_bug)
-  * [A Simple Example](#a-simple-example)
+  * [LOGURU_CONFIG](#loguru_config)
+  * [IGNORE_URLS](#ignore_urls)
 * [Have questions?](#have-questions)
 
 
