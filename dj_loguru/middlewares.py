@@ -3,11 +3,11 @@ import traceback
 from django.http import HttpRequest, HttpResponse
 from django.core.handlers.wsgi import WSGIRequest
 from loguru import logger
-from django_simple_logs.defaults import default_loguru_settings, default_ignore_urls
-from django_simple_logs.conf import conf
+from dj_loguru.defaults import default_loguru_settings, default_ignore_urls
+from dj_loguru.conf import conf
 
 logger.remove(0)
-logger.configure(**conf.DJANGO_SIMPLE_LOGS.get('LOGURU', default_loguru_settings))
+logger.configure(**conf.DJANGO_SIMPLE_LOGS.get('LOGURU_CONFIG', default_loguru_settings))
 
 
 class LoguruMiddleware:
@@ -35,6 +35,8 @@ class LoguruMiddleware:
         logger.info(f"Method: {request.method}")
         try:
             body = json.loads(request.body)
+        except UnicodeDecodeError:
+            logger.info(f"Data: {{{''}}}")
         except json.JSONDecodeError:
             logger.info(f"Data: {{{''}}}")
         else:
@@ -44,6 +46,8 @@ class LoguruMiddleware:
         """ Логирование HttpResponse """
         try:
             content = json.loads(response.content)
+        except UnicodeDecodeError:
+            logger.info(f"Data: {{{''}}}")
         except json.JSONDecodeError:
             logger.info(f"Response: {{{''}}}")
         else:
