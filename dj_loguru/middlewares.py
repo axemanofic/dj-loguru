@@ -7,7 +7,7 @@ from dj_loguru.defaults import default_loguru_settings, default_ignore_urls
 from dj_loguru.conf import conf
 
 logger.remove(0)
-logger.configure(**conf.DJANGO_SIMPLE_LOGS.get('LOGURU_CONFIG', default_loguru_settings))
+logger.configure(**conf.DJANGO_LOGURU.get('LOGURU_CONFIG', default_loguru_settings))
 
 
 class LoguruMiddleware:
