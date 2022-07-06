@@ -9,7 +9,7 @@ repository = 'https://github.com/axemanofic/dj-loguru.git'
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "^3.2"
+Django = "^4.0.0"
 loguru = "^0.6.0"
 
 [tool.poetry.dev-dependencies]

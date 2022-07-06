@@ -25,11 +25,9 @@ class LoguruMiddleware:
         return self.get_response(request)
 
     def __is_contains_ignore_url(self, url):
-        """Содержит ли данный url игнорируемый url"""
         return any(item in url for item in self.ignore_urls)
 
     def __log_request(self, request: WSGIRequest):
-        """ Логирование HttpRequest """
         url = request.get_full_path()
         logger.info(f"URL: {url}")
         logger.info(f"Method: {request.method}")
@@ -43,7 +41,6 @@ class LoguruMiddleware:
             logger.info(f"Data: {body}")
 
     def __log_response(self, response: HttpResponse):
-        """ Логирование HttpResponse """
         try:
             content = json.loads(response.content)
         except UnicodeDecodeError:
@@ -55,10 +52,8 @@ class LoguruMiddleware:
         logger.info(f"Status Code: {response.status_code}")
 
     def process_exception(self, request: HttpRequest, exception: Exception):
-        """ Логирование Exception """
         logger.error(str(traceback.format_exc()))
 
     def __log_user(self, request: HttpRequest):
-        """ Логирование данных пользователя """
         logger.info(f"User_id: {request.user.id}")
         logger.info(f"----------------------")

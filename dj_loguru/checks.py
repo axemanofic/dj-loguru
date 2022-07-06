@@ -1,8 +1,8 @@
 from typing import List, Any
 from django.apps import AppConfig
 from django.core.checks import Error
-from django_simple_logs.defaults import default_loguru_settings, default_ignore_urls
-from django_simple_logs.conf import conf
+from dj_loguru.defaults import default_loguru_settings, default_ignore_urls
+from dj_loguru.conf import conf
 
 
 def check_settings(app_configs: List[AppConfig], **kwargs: Any) -> List[Error]:
@@ -10,7 +10,7 @@ def check_settings(app_configs: List[AppConfig], **kwargs: Any) -> List[Error]:
 
     if not isinstance(conf.DJANGO_LOGURU, dict):
         errors.append(
-            Error("DJANGO_SIMPLE_LOGS should be a dict.")
+            Error("DJANGO_LOGURU should be a dict.")
         )
     if not isinstance(conf.DJANGO_LOGURU.get("LOGURU_CONFIG", default_loguru_settings), dict):
         errors.append(
