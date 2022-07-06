@@ -5,7 +5,7 @@ from dj_loguru.defaults import default_loguru_settings, default_ignore_urls
 
 class Settings:
     @property
-    def DJANGO_SIMPLE_LOGS(self):
+    def DJANGO_LOGURU(self):
         return getattr(settings, "DJANGO_LOGURU", default_loguru_settings)
 
 

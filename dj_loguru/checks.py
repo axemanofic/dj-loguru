@@ -1,8 +1,8 @@
 from typing import List, Any
 from django.apps import AppConfig
 from django.core.checks import Error
-from dj_loguru.defaults import default_loguru_settings, default_ignore_urls
 from dj_loguru.conf import conf
+from dj_loguru.defaults import default_loguru_settings, default_ignore_urls
 
 
 def check_settings(app_configs: List[AppConfig], **kwargs: Any) -> List[Error]:
