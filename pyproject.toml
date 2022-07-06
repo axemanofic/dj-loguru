@@ -1,9 +1,11 @@
 [tool.poetry]
 name = "dj-loguru"
 version = "0.1.0"
-description = "Simple logging application"
+description = "A simple logging application based on loguru"
 authors = ["Roman Sotnikov <axeman.ofic@gmail.com>"]
 license = "MIT"
+readme = "README.md"
+repository = 'https://github.com/axemanofic/dj-loguru.git'
 
 [tool.poetry.dependencies]
 python = "^3.8"
