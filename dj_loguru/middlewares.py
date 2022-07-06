@@ -13,7 +13,7 @@ logger.configure(**conf.DJANGO_LOGURU.get('LOGURU_CONFIG', default_loguru_settin
 class LoguruMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
-        self.ignore_urls: list = conf.DJANGO_SIMPLE_LOGS.get('IGNORE_URLS', default_ignore_urls)
+        self.ignore_urls: list = conf.DJANGO_LOGURU.get('IGNORE_URLS', default_ignore_urls)
 
     def __call__(self, request: WSGIRequest):
         if not self.__is_contains_ignore_url(request.get_full_path()):
